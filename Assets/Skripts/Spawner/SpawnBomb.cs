@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class SpawnBomb : ObjectPool
+public class SpawnBomb : ObjectPool <Bomb>
 {
     [SerializeField] private Bomb _bombPrefab;
     [SerializeField] protected Vector3 _scaleBomb;
@@ -8,7 +8,7 @@ public class SpawnBomb : ObjectPool
     private int _countObject;
     private void Start()
     {
-        Initialaze(_bombPrefab.gameObject);
+        Initialaze(_bombPrefab);
     }
 
     public void SetSpawnPosition(Vector3 position)
@@ -18,18 +18,18 @@ public class SpawnBomb : ObjectPool
 
     private void Spawn(Vector3 position)
     {
-        if (TryGetObject(out GameObject gameObject))
+        if (TryGetObject(out Bomb gameObject))
         {
-            gameObject.SetActive(true);
+            gameObject.gameObject.SetActive(true);
             gameObject.transform.localScale = _scaleBomb;
             gameObject.transform.position = position;
 
             _countObject++;
             CountElements(_countObject);
         }
-        else
+/*        else
         {
             ResetPoll();
-        }
+        }*/
     }
 }

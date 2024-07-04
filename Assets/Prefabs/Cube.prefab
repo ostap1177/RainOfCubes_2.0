@@ -194,4 +194,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _minDelayDestroy: 2
-  _maxDelayDestroy: 6
+  _maxDelayDestroy: 4

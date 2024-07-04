@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
-public class SpawnCubes : ObjectPool
+public class SpawnCubes : ObjectPool<Cube>
 {
     [SerializeField] private Collider _spawnTerritory;
     [SerializeField] private Cube _cubePrefab;
@@ -25,7 +25,7 @@ public class SpawnCubes : ObjectPool
 
     private void Start()
     {
-        Initialaze(_cubePrefab.gameObject);
+        Initialaze(_cubePrefab);
         Spawn();
     }
 
@@ -51,19 +51,19 @@ public class SpawnCubes : ObjectPool
 
     private void SpawnCube(Vector3 spawtPosition)
     {
-        if (TryGetObject(out GameObject cube))
+        if (TryGetObject(out Cube cube))
         { 
-            cube.SetActive(true);
+            cube.gameObject.SetActive(true);
             cube.transform.localScale = _scaleCube;
             cube.transform.position = GetSpawtPosition();
 
             _countObject++;
             CountElements(_countObject);
-        }
+        }/*
         else
         {
             ResetPoll();
-        }
+        }*/
     }
 
     private Vector3 GetSpawtPosition()

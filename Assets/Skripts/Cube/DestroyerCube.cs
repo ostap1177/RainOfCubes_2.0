@@ -31,10 +31,10 @@ public class DestroyerCube : MonoBehaviour
     {
         yield return _waitForSeconds;
 
-        Destroy();
+        Deactivate();
     }
 
-    private void Destroy()
+    private void Deactivate()
     {
         SetDestroyPosition();
         gameObject.SetActive(false);

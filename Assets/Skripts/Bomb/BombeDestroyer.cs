@@ -45,8 +45,8 @@ public class BombeDestroyer : MonoBehaviour
             yield return _delay;
         }
 
-        _explosion.Blowing(_transform.position);           
-        DestroyBomb();
+        _explosion.Explode(_transform.position);           
+        Deactivate();
     }
 
     private int SetDuration()
@@ -54,7 +54,7 @@ public class BombeDestroyer : MonoBehaviour
         return Random.Range(_maxDuration, _maxDuration);
     }
 
-    private void DestroyBomb()
+    private void Deactivate()
     {
         gameObject.SetActive(false);
     }

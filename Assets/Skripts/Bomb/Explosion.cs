@@ -6,7 +6,7 @@ public class Explosion : MonoBehaviour
     [SerializeField] private int _forceExplsion;
     [SerializeField] private int _radiusExplosion;
 
-    public void Blowing(Vector3 explosionPosition)
+    public void Explode(Vector3 explosionPosition)
     {
         foreach (Rigidbody explodableCube in GetExplosion(explosionPosition))
         {

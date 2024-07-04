@@ -1,7 +1,6 @@
 using UnityEngine;
 
-[RequireComponent(typeof(Renderer))]
-public class Bomb : MonoBehaviour
+public class Bomb : Entity
 {
     [SerializeField] private BombeDestroyer _bombeDestroyer;
 
